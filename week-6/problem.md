@@ -1,5 +1,7 @@
-| 번호 | 문제 이름 |
-|:----:|:---------:|
-| [5883](https://www.acmicpc.net/problem/5883) | [아이폰 9S](https://www.acmicpc.net/problem/5883) |
-| [17141](https://www.acmicpc.net/problem/17141) | [연구소 2](https://www.acmicpc.net/problem/17141) |
-| [11687](https://www.acmicpc.net/problem/11687) | [팩토리얼 0의 개수](https://www.acmicpc.net/problem/11687) |
+| level | 문제 |
+|:----:|:----:|
+| 3 | [표 병합](https://school.programmers.co.kr/learn/courses/30/lessons/150366) |
+| 3 | [등산 코스 정하기](https://school.programmers.co.kr/learn/courses/30/lessons/118669) |
+| 2 | [거리두기 확인하기](https://school.programmers.co.kr/learn/courses/30/lessons/81302) |
+| 2 | [순위 검색](https://school.programmers.co.kr/learn/courses/30/lessons/72412) |
+| 2 | [메뉴 리뉴얼](https://school.programmers.co.kr/learn/courses/30/lessons/72411) |
