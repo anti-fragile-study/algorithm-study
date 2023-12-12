@@ -3,7 +3,7 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
-
+ 
 public class BOJ17276 {
     static BufferedReader br;
     static BufferedWriter bw;
