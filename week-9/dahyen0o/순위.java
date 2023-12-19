@@ -2,66 +2,49 @@ import java.util.*;
 
 class Solution {
     
-    // from[a] = b: a -> b
-    private static List<Integer>[] froms;
-    private static boolean[][] wVisited, lVisited;
+    private static int MAX_DIST = Integer.MAX_VALUE / 2;
     
-    public int solution(final int N, int[][] results) {
-        froms = new ArrayList[N + 1];
-        init(froms);
-        
+    public int solution(final int N, int[][] results) {        
+        /* 플로이드-워셜 알고리즘 */
+        final int[][] dists = new int[N + 1][N + 1];
+        // 거리 초기화
+        for(int i = 0; i < dists.length; i++) {
+            Arrays.fill(dists[i], MAX_DIST);
+            dists[i][i] = 0; // 출발지 == 목적지
+        }
         for(int[] result : results) {
-            froms[result[1]].add(result[0]);
+            dists[result[1]][result[0]] = 1; // 경기 결과 존재
         }
         
-        // 선수마다 이긴 선수들 몇 명인지 카운트
-        final int[] wins = new int[N + 1];
-        final int[] loses = new int[N + 1];
-        wVisited = new boolean[N + 1][N + 1];
-        lVisited = new boolean[N + 1][N + 1];
-        for(int n = 1; n <= N; n++) {
-            count(n, wins, loses);
+        for(int mid = 1; mid <= N; mid++) {
+            for(int start = 1; start <= N; start++) {
+                for(int end = 1; end <= N; end++) {
+                    dists[start][end] = Math.min(dists[start][end], dists[start][mid] + dists[mid][end]);
+                }
+            }
         }
         
-        System.out.println(Arrays.toString(wins));
-        System.out.println(Arrays.toString(loses));
-        
-        // 순위를 매길 수 있는 지 판단
+        /* 결과 */
         int answer = 0;
-        for(int n = 1; n <= N; n++) {
-            if(wins[n] + loses[n] == N - 1) {
+        
+        for(int num = 1; num <= N; num++) {
+            int count = 0;
+            for(int start = 1; start <= N; start++) {
+                if(dists[start][num] < MAX_DIST) {
+                    count++;
+                }
+            }
+            for(int end = 1; end <= N; end++) {
+                if(dists[num][end] < MAX_DIST) {
+                    count++;
+                }
+            }
+            
+            if(count == N + 1) { // 이긴 횟수 + 진 횟수 + 내 결과(1 * 2)
                 answer++;
             }
         }
         
         return answer;
-    }
-    
-    private void count(final int start, final int[] wins, final int[] loses) {
-        final Queue<Integer> queue = new ArrayDeque<>();
-        queue.add(start);
-                
-        while(!queue.isEmpty()) {
-            final int curr = queue.poll();
-            
-            for(int next : froms[curr]) {
-                if(!wVisited[next][start]) {
-                    wins[next]++;
-                    wVisited[next][start] = true;
-                }
-                if(!lVisited[start][next]) {
-                    loses[start]++;
-                    lVisited[next] = true;
-                }
-                
-                queue.add(next);
-            }
-        }
-    }
-    
-    private void init(final List<Integer>[] list) {
-        for(int i = 0; i < list.length; i++) {
-            list[i] = new ArrayList<>();
-        }
     }
 }
