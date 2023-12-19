@@ -6,7 +6,7 @@ def play(board, me, op, count):
     x, y = me
     if board[x][y] == 0 or isFail(board, x, y):
         return count
-    
+    # 현재 상태에서 이기고 지는 플레이 결과를 기록
     win, lose = [], []
     board[x][y] = 0
     for dx, dy in dxdy:
