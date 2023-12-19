@@ -1,36 +1,36 @@
-answer = int(1e9)
 def solution(board, aloc, bloc):
-    play(board, aloc, bloc, 0)
-    return answer
+    return play(board, aloc, bloc, 0)
 
 dxdy = ((0,1),(1,0),(-1,0),(0,-1))
-def play(board, aloc, bloc, count):
-    global answer
-    ax, ay = aloc
-    bx, by = bloc
-    if board[ax][ay] == 0 or board[bx][by] == 0:
-        answer = min(answer, count)
+def play(board, me, op, count):
+    x, y = me
+    if board[x][y] == 0 or isFail(board, x, y):
+        return count
+    
+    win, lose = [], []
+    board[x][y] = 0
+    for dx, dy in dxdy:
+        _x, _y = x + dx, y + dy
+        if not (0 <= _x < len(board) and 0 <= _y < len(board[0])) or board[_x][_y] == 0:
+            continue
 
-    flag = True
-    if count % 2 == 0:
-        for dx, dy in dxdy:
-            _x = ax + dx
-            _y = ay + dy
-            if not (0 <= _x < len(board) and 0 <= _y < len(board[0])): continue
-            if board[_x][_y] == 0: continue
-            flag = False
-            board[ax][ay] = 0
-            play(board, (_x, _y), bloc, count + 1)
-            board[ax][ay] = 1
-    else:
-        for dx, dy in dxdy:
-            _x = bx + dx
-            _y = by + dy
-            if not (0 <= _x < len(board) and 0 <= _y < len(board[0])): continue
-            if board[_x][_y] == 0: continue
-            flag = False
-            board[bx][by] = 0
-            play(board, aloc, (_x, _y), count + 1)
-            board[bx][by] = 1
-    if flag:
-        answer = min(answer, count)
+        result = play(board, op, (_x, _y), count + 1)
+
+        if (count + result) % 2 != 0: # me가 이겼다면
+            win.append(result)
+        else: # me가 졌다면
+            lose.append(result)
+    board[x][y] = 1
+
+    # 이길 수 있다면 빠르게 이겨야지
+    if win:
+        return min(win)
+    # 뭘해도 진다면 버텨야지
+    return max(lose)
+
+def isFail(board, x, y):
+    for dx, dy in dxdy:
+        _x, _y = x + dx, y + dy
+        if 0 <= _x < len(board) and 0 <= _y < len(board[0]) and board[_x][_y] == 1:
+            return False
+    return True
