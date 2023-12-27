@@ -25,6 +25,22 @@
     <td>주차</td>
     <td colspan="5">문제 목록</td>
   </tr>
+<!--   <tr>
+    <td>주차</td></td>
+    <td><a href=""></a></td>
+    <td><a href=""></a></td>
+    <td><a href=""></a></td>
+    <td><a href=""></a></td>
+    <td><a href=""></a></td>
+  </tr> -->
+  <tr>
+    <td>13주차</td></td>
+    <td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/64062">징검다리 건너기</a></td>
+    <td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/72410">신규 아이디 추천</a></td>
+    <td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/60063">블록 이동하기</a></td>
+    <td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/42883">큰 수 만들기</a></td>
+    <td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/42862">체육복</a></td>
+  </tr>
   <tr>
     <td>12주차</td></td>
     <td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/42627">디스크 컨트롤러</a></td>
