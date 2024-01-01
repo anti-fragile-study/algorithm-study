@@ -29,19 +29,6 @@ class Solution {
                 doLost[n] = false;
                 continue;
             }
-        }
-        for(int n = 1; n <= N; n++) {
-            if(!doLost[n]) continue;
-            if(n > 1 && canBorrow[n - 1]) {
-                canBorrow[n - 1] = false;
-                doLost[n] = false;
-                continue;
-            }
-            if(n < N && canBorrow[n + 1]) {
-                canBorrow[n + 1] = false;
-                doLost[n] = false;
-                continue;
-            }
             answer--;
         }
         
