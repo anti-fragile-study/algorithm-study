@@ -10,20 +10,12 @@ class Solution {
         
         int answer = 0;
         for (int i = 0; i < times.size(); i++) {
-            int rangeStart = times.get(i).end;
-            int rangeEnd = rangeStart + 1000;
+            int rangeEnd = times.get(i).end + 1000;
             int count = 0;
-            for (int j = 0; j < times.size(); j++) {
+            for (int j = i; j < times.size(); j++) {
                 Time target = times.get(j);
                 int start = target.start;
-                int end = target.end;
-                if (rangeStart <= start && end < rangeEnd) {
-                    count++;
-                } else if (rangeStart <= end && end < rangeEnd) {
-                    count++;
-                } else if (rangeStart <= start && start < rangeEnd) {
-                    count++;
-                } else if (start <= rangeStart && end >= rangeEnd) {
+                if (start < rangeEnd) {
                     count++;
                 }
             }
