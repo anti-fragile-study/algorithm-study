@@ -9,9 +9,12 @@ def solution(N, weak, dist):
     
     for count in range(len(intervals) // 2 + 1):
         for passes in combinations(range(len(intervals)), count):
-            # pass가 연속해 있으면(= 빼먹는 취약 지점 존재) 해당 passes 건너뛰기
-            if is_passes_connected(len(intervals), passes):
-                continue
+            result = 0
+            for i in range(len(passes) - 1):
+                if passes[i] + 1 == passes[i + 1]:
+                    result += 1
+            if passes and passes[-1] == len(intervals) - 1 and passes[0] == 0:
+                result += 1
             
             # 친구들을 투입해야 하는 구간들 checks에 넣기
             curr_length = 0
@@ -35,7 +38,7 @@ def solution(N, weak, dist):
                 if c > d:
                     break
             else: 
-                return len(checks)
+                return result + len(checks)
     
     # 최후로 친구들이 취약 지점을 하나씩만 맡는 경우 (= 구간 필요 없음)
     if len(dist) >= len(weak): return len(weak)
