@@ -4,7 +4,7 @@ import (
 	"strings"
 )
 
-func solution(friends []string, gifts []string) int {
+func giftSolution(friends []string, gifts []string) int {
 
 	users := map[string]int{}
 	giftLog := [50][50]int{}
