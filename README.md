@@ -33,6 +33,14 @@
     <td><a href=""></a></td>
     <td><a href=""></a></td>
   </tr> -->
+    <tr>
+    <td>16주차</td></td>
+    <td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/84021">퍼즐 조각 채우기</a></td>
+    <td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/42893">매칭 점수</a></td>
+    <td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/12936">줄 서는 방법</a></td>
+    <td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/160585">혼자서 하는 틱택토</a></td>
+    <td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/172928">공원 산책</a></td>
+  </tr>
   <tr>
     <td>15주차</td></td>
     <td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/258712">가장 많이 받은 선물</a></td>
