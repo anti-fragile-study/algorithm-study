@@ -7,18 +7,20 @@ class Solution {
         for (int t : tangerine) {
             tangerines.put(t, tangerines.getOrDefault(t, 0) + 1);
         }
-        PriorityQueue<int[]> pq = new PriorityQueue<>((o1, o2) -> {
-            return o1[1] - o2[1];
-        });
+        List<int[]> tangerineList = new ArrayList<>();
         for (Map.Entry<Integer, Integer> entry : tangerines.entrySet()) {
-            pq.add(new int[]{ entry.getKey(), entry.getValue() });
+            tangerineList.add(new int[]{ entry.getKey(), entry.getValue() });
         }
-        for (int i = k; i < tangerine.length; i++) {
-            int[] p = pq.poll();
-            if (p[1] > 1) {
-                pq.add(new int[]{ p[0], p[1] - 1 });
+        Collections.sort(tangerineList, (o1, o2) -> o2[1] - o1[1]);
+        
+        int answer = 0;
+        for (int[] t : tangerineList) {
+            k -= t[1];
+            answer++;
+            if (k <= 0) {
+                break;
             }
         }
-        return pq.size();
+        return answer;
     }
 }
