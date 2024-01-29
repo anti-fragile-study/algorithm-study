@@ -1,37 +1,32 @@
-# k 가 너무 큼
-# r: 회전 수
-# len(food_times) > k : 한바퀴도 못 돔
-# r = min(food_times)
-# 만약 min(food_times) * len(food_times) > k 라면, r = k // len(food_times)
-from heapq import heappush, heappop, heapify
-
+# 파이썬 1초에 2000만
+# 이분탐색 O(logN)
+# 200,000 * log(100,000,000) = 5,200,000
 def solution(food_times, k):
-    food = {}
-    for i, t in enumerate(food_times):
-        food[i] = t
+    left, right = 1, int(1e8)
+    N = len(food_times)
+    rotate, t = 0, 0
+    times = sorted(food_times)
+    while left <= right:
+        mid = (left + right) // 2
+        temp = N * mid
+        for time in times:
+            if time >= mid:
+                break
+            temp -= mid - time
         
-    q = list(food.values())
-    heapify(q)
+        if temp <= k:
+            rotate = mid
+            t = temp
+            left = mid + 1
+        else:
+            right = mid - 1
     
-    count = len(food)
-    total_r = 0
-    while k >= count:
-        r = q[0] - total_r
-        if r * count > k:
-            r = k // count
-        
-        k -= r * count
-        total_r += r
-        
-        foods = list(food.keys())[:]
-        for x in foods:
-            if food[x] > r:
-                food[x] -= r
-            else:
-                food.pop(x)
-                heappop(q)
-                count -= 1
-                
-        if count == 0: return -1
-    
-    return list(food.keys())[k] + 1
+    k -= t
+    for i in range(len(food_times)):
+        food_times[i] -= rotate
+        if food_times[i] > 0:
+            k -= 1
+        if k < 0:
+            return i + 1
+
+    return -1
