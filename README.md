@@ -25,7 +25,7 @@
     <td>주차</td>
     <td colspan="5">문제 목록</td>
   </tr>
-<!--   <tr>
+<!--  <tr>
     <td>주차</td></td>
     <td><a href=""></a></td>
     <td><a href=""></a></td>
@@ -33,6 +33,14 @@
     <td><a href=""></a></td>
     <td><a href=""></a></td>
   </tr> -->
+  <tr>
+    <td>18주차</td></td>
+    <td><a href="https://www.acmicpc.net/problem/18223">민준이 마산 그리고 건우</a></td>
+    <td><a href="https://www.acmicpc.net/problem/20053">최소, 최대 2</a></td>
+    <td><a href="https://www.acmicpc.net/problem/22868">산책</a></td>
+    <td><a href="https://www.acmicpc.net/problem/1012">유기농 배추</a></td>
+    <td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/87694">아이템 줍기</a></td>
+  </tr>
   <tr>
     <td>17주차</td></td>
     <td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/132267">콜라문제</a></td>
