@@ -1,81 +1,52 @@
-# 1~10,000를 이진수로 표현하여 이진트리를 만들 수 있는가?
-# 숫자 = 1,000,000,000,000,000개
+# 수가 주어졌을 때 이진트리로 표현할 수 있는지 반환
 
-# 7:   111
-# 42:  0101010 = 2 + 8 + 32 = 42
-# 63:  0111111 = 1 + 2 + 4 + 8 + 16 + 32
-# 111: 1101111 = 1 + 2 + 4 + 8 + 32 + 64 = 111
-
-# 포화 이진 트리의 개수: 1, 3, 7, 15, ..., 2^k - 1
-# 2^15 = 32768 -> 1~32768
-
-# 1: 1               (O)
-# 2: 10   -> 010     (O)
-# 3: 11   -> 011     (O)
-# 4: 100  -> 0000100 (X)
-# 5: 101  -> 0000101 (X)
-# ...
-# 8: 1000 -> 0001000 (O)
-# 9: 1001 -> 0001001 (X)
-
-from itertools import *
+# 노드의 개수는 1 -> 3 -> 7 -> 15 -> ... ->  2^n - 1 (n은 depth)
+# 왼쪽에 0을 아무리 붙여도 십진수의 값은 변하지 않는다.
 
 def solution(numbers):
-    forest = [[Node(None, "1", None)], [], [], []]
-    for depth in range(3):
-        for root in forest[depth]:
-            for case in product(["0", "1"], repeat = 2 ** (depth + 1)):
-                forest[depth + 1].append(inorder_case(copy_tree(root), list(case)))
+    answer = []
+    for number in numbers:
+        # 주어진 숫자를 이진수로 변환 e.g. 58 -> 111010
+        binary = to_binary(number)
 
-    table = [False for _ in range(100_000)]
-    for trees in forest:
-        for tree in trees:
-            table[int(str(tree), 2)] = True
+        # 길이가 2^n-1꼴이 아닌 경우 필요한 만큼 0을 붙인다. 111010 -> 0111010
+        padded = padding(binary)
 
-    return [1 if table[number] else 0 for number in numbers]
+        # 재귀적으로 서브 트리들의 root가 1인 지 판단한다.
+        answer.append(1 if judge(padded, None) else 0)
+        print("---")
 
+    return answer
 
-class Node:
-    def __init__(self, left, value, right):
-        self.left = left
-        self.value = value
-        self.right = right
+def to_binary(number):
+    ret = []
+    while number != 0:
+        ret.append(number % 2)
+        number //= 2
 
-    def __str__(self):
-        return "".join(inorder(self))
+    return "".join(map(str, ret[::-1]))
 
-def inorder(node):
-    values = []
+def padding(binary):
+    depth = 1
 
-    if node:
-        values.extend(inorder(node.left))
-        values.append(node.value)
-        values.extend(inorder(node.right))
+    while True:
+        length = 2 ** depth - 1
+        if length >= len(binary):
+            return "0" * (length - len(binary)) + binary
 
-    return values
+        depth += 1
 
-def inorder_case(node, case):
-    if not node.left and not node.right:
-        if node.value == "0":
-            case.pop()
-            case.pop()
-            node.left = Node(None, "0", None)
-            node.right = Node(None, "0", None)
-        else:
-            node.left = Node(None, case.pop(), None)
-            node.right = Node(None, case.pop(), None)
-    else:
-        inorder_case(node.left, case)
-        inorder_case(node.right, case)
+def judge(tree, parent):
+    # 리프 노드의 좌우는 항상 True
+    if parent and not tree:
+        return True
 
-    return node
+    middle = len(tree) // 2
+    left, right = tree[:middle], tree[middle + 1:]
 
-def copy_tree(node):
-    if node is None:
-        return None
-    else:
-        return Node(
-                copy_tree(node.left),
-                node.value,
-                copy_tree(node.right)
-        )
+    # 중앙이 1인 경우
+    if tree[middle] == "1":
+        if parent == "0":
+            return False
+
+    return judge(left, tree[middle]) and judge(right, tree[middle])
