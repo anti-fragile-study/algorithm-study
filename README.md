@@ -33,6 +33,14 @@
     <td><a href=""></a></td>
     <td><a href=""></a></td>
   </tr> -->
+   <tr>
+    <td>19주차</td></td>
+    <td><a href="https://www.acmicpc.net/problem/5883">아이폰 9S</a></td>
+    <td><a href="https://www.acmicpc.net/problem/1074">Z</a></td>
+    <td><a href="https://www.acmicpc.net/problem/15961">회전 초밥</a></td>
+    <td><a href="https://www.acmicpc.net/problem/20119">클레어와 물약</a></td>
+    <td><a href="https://www.acmicpc.net/problem/19235">모노미노도미노</a></td>
+  </tr>
   <tr>
     <td>18주차</td></td>
     <td><a href="https://www.acmicpc.net/problem/18223">민준이 마산 그리고 건우</a></td>
