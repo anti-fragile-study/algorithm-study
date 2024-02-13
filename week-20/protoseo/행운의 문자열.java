@@ -3,47 +3,36 @@ import java.util.*;
 
 public class Main {
 
-    static String str;
     static int n;
-    static Set<String> answers = new HashSet<>();
+    static int answer;
+    static Map<Character, Integer> chars = new HashMap<>();
 
     public static void main(String[] args) throws IOException {
         final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        str = br.readLine();
+        String str = br.readLine();
         n = str.length();
-        find(0, new char[n], new boolean[n]);
-        System.out.println(answers.size());
+        for (int i = 0; i < n; i++) {
+            chars.put(str.charAt(i), chars.getOrDefault(str.charAt(i), 0) + 1);
+        }
+        find(0, '\0');
+        System.out.println(answer);
     }
 
-    private static void find(int idx, char[] ary, boolean[] isUsed) {
+    private static void find(int idx, char prev) {
         if (idx >= n) {
-            char prev = ary[0];
-            for (int i = 1; i < n; i++) {
-                char now = ary[i];
-                if (prev == now) {
-                    return;
-                }
-                prev = now;
-            }
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < n; i++) {
-                sb.append(ary[i]);
-            }
-            answers.add(sb.toString());
+            answer++;
             return;
         }
-        for (int i = 0; i < n; i++) {
-            char now = str.charAt(i);
-            if (isUsed[i]) {
+        for (Map.Entry<Character, Integer> entry : chars.entrySet()) {
+            if (idx > 0 && entry.getKey() == prev) {
                 continue;
             }
-            if (idx > 0 && now == ary[idx - 1]) {
+            if (entry.getValue() <= 0) {
                 continue;
             }
-            isUsed[i] = true;
-            ary[idx] = now;
-            find(idx + 1, ary, isUsed);
-            isUsed[i] = false;
+            chars.put(entry.getKey(), entry.getValue() - 1);
+            find(idx + 1, entry.getKey());
+            chars.put(entry.getKey(), entry.getValue() + 1);
         }
     }
 }
