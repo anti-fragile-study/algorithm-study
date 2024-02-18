@@ -34,6 +34,14 @@
     <td><a href=""></a></td>
   </tr> -->
    <tr>
+    <td>20주차</td></td>
+    <td><a href="https://www.acmicpc.net/problem/2839">설탕 배달</a></td>
+    <td><a href="https://www.acmicpc.net/problem/17141">연구소 2</a></td>
+    <td><a href="https://www.acmicpc.net/problem/1342">행운의 문자열</a></td>
+    <td><a href="https://www.acmicpc.net/problem/2228">구간 나누기</a></td>
+    <td><a href="https://www.acmicpc.net/problem/22949">회전 미로 탐색</a></td>
+  </tr>
+   <tr>
     <td>19주차</td></td>
     <td><a href="https://www.acmicpc.net/problem/5883">아이폰 9S</a></td>
     <td><a href="https://www.acmicpc.net/problem/1074">Z</a></td>
