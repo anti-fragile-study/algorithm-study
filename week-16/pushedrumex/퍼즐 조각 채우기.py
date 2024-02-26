@@ -1,116 +1,98 @@
-from collections import deque
+# 퍼즐 조각, 회전 후 퍼즐 조각, 방문 등을 모두 N by N 으로 저장 -> 시간초과
+# 퍼즐 조각 점들을 리스트로 저장 -> 통과
 
-N, M = None, None
-game_board = None
+from collections import deque
+from copy import deepcopy
+
+N = None
+origin_game_board, game_board = None, None
 table = None
 dxdy = ((1, 0), (-1, 0), (0, -1), (0, 1))
 def solution(_game_board, _table):
-    global N, M, game_board, table
+    global N, game_board, origin_game_board, table
     
     game_board = _game_board
-    table = _table
-    N, M = len(game_board), len(game_board[0])
-    
-    answer = 0
-    for i in range(N):
-        for j in range(M):
-            if table[i][j] == 1:
-                piece = get_piece(i, j)
-                for _ in range(4):
-                    piece = rotate(piece)
-                    i, j = j, N-i-1
+    origin_game_board = deepcopy(_game_board)
 
-                    if is_possible(i, j, piece):
-                        temp = 0
-                        for p in piece:
-                            temp += sum(p)
-                        answer += temp
+    table = _table
+    N = len(game_board)
+    
+    before_count = 0
+    for row in game_board:
+        before_count += sum(row)
+
+    for i in range(N):
+        for j in range(N):
+            if table[i][j] == 1:
+                points = get_points(i, j)
+                _i, _j = i, j
+                for _ in range(4):
+                    points = rotate(points)
+                    _i, _j = _j, N-_i-1
+
+                    if is_possible(points):
                         break
 
-    return answer
+    after_count = 0
+    for row in game_board:
+        after_count += sum(row)
+        
+    return after_count - before_count
 
-def is_possible(x, y, piece):
+def is_possible(points):
     for i in range(N):
-        for j in range(M):
-            if game_board[i][j] == 1: continue
-            
-            temp_board = [[0] * M for _ in range(N)]
-            temp_board[i][j] = 1
-            
-            if not is_possible_insert(i, j, x, y, temp_board, piece): continue
-            if not is_match(i, j, temp_board): continue
-            
+        for j in range(N):
+            if game_board[i][j] > 0: continue
+            if not is_match(i, j, points): continue
+
             # game_board 에 넣기
-            for i in range(N):
-                for j in range(M):
-                    game_board[i][j] += temp_board[i][j]
+            put(i, j, points)
 
             return True
         
     return False
 
-def is_possible_insert(i, j, x, y, temp_board, piece):
-    visited = [[False] * M for _ in range(N)]
-    visited[x][y] = True
+def put(i, j, points):
+    dx, dy = i - points[0][0], j - points[0][1]
+    for x, y in points:
+        game_board[x + dx][y + dy] = 1
 
-    q = deque([(x, y, i, j)])
-    while q:
-        x, y, i, j = q.popleft()
-        for dx, dy in dxdy:
-            _x, _y = x + dx, y + dy
-            if ofb(_x, _y) or piece[_x][_y] == 0 or visited[_x][_y]: continue
-
-            _i, _j = i + dx, j + dy
-            if ofb(_i, _j) or game_board[_i][_j] == 1: return False
-            temp_board[_i][_j] = 1
-            
-            q.append((_x, _y, _i, _j))
-            visited[_x][_y] = True
-
-    return True
-
-def is_match(i, j, temp_board):
-    q = deque([(i, j)])
-    visited = [[False] * M for _ in range(N)]
-    visited[i][j] = True  
-    while q:
-        i, j = q.popleft()
-        for dx, dy in dxdy:
-            _i, _j = i + dx, j + dy
-            if ofb(_i, _j) or visited[_i][_j]: continue
-            
-            if temp_board[_i][_j] == 1:
-                q.append((_i, _j))
-                visited[_i][_j] = True
-                continue
-                
-            if game_board[_i][_j] == 0: return False
+def is_match(i, j, points):
+    dx, dy = i - points[0][0], j - points[0][1]
+    for x, y in points:
+        x, y = x + dx, y + dy
+        if ofb(x, y) or game_board[x][y] > 0: return False
+    
+        # 인접한 빈칸 유무 확인
+        for dx1, dy1 in dxdy:
+            _x, _y = x + dx1, y + dy1
+            if ofb(_x, _y): continue
+            if origin_game_board[_x][_y] == 0 and ((_x - dx, _y - dy) not in points): return False
 
     return True
 
-def get_piece(i, j):
-    q = deque([(i, j)])
-    table[i][j] = 0
-    piece = [[0] * M for _ in range(N)]
-    piece[i][j] = 1
+def get_points(x, y):
+    result = []
+    q = deque([(x, y)])
+    table[x][y] = 0
+    result.append((x, y))
     while q:
         x, y = q.popleft()
         for dx, dy in dxdy:
             _x, _y = x + dx, y + dy
             if ofb(_x, _y) or table[_x][_y] == 0: continue
+            
             table[_x][_y] = 0
-            piece[_x][_y] = 1
+            result.append((_x, _y))
             q.append((_x, _y))
             
-    return piece
-        
-def ofb(x, y):
-    return not (0 <= x < N and 0 <= y < M)
-    
-def rotate(piece):
-    result = [[0] * M for _ in range(N)]
-    for i in range(N):
-        for j in range(M):
-            result[j][N-i-1] = piece[i][j]
-            
     return result
+
+def rotate(points):
+    result = []
+    for x, y in points:
+        result.append((y, N-x-1))
+    return result 
+
+def ofb(x, y):
+    return not (0 <= x < N and 0 <= y < N)
