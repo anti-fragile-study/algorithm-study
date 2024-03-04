@@ -3,12 +3,14 @@ import java.util.*;
 
 public class Main {
 
-    static List<Mineral>[] minerals = new List[100002];
+    static List<Mineral>[] xMinerals = new List[100002];
+    static List<Mineral>[] yMinerals = new List[100002];
 
     public static void main(String[] args) throws IOException {
         final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         for (int i = 0; i <= 100001; i++) {
-            minerals[i] = new ArrayList<>();
+            xMinerals[i] = new ArrayList<>();
+            yMinerals[i] = new ArrayList<>();
         }
 
         StringTokenizer stk = new StringTokenizer(br.readLine());
@@ -20,36 +22,38 @@ public class Main {
             int x = Integer.parseInt(stk.nextToken());
             int y = Integer.parseInt(stk.nextToken());
             int v = Integer.parseInt(stk.nextToken());
-            minerals[x].add(new Mineral(x, y, v));
+            final Mineral m = new Mineral(x, y, v);
+            xMinerals[x].add(m);
+            yMinerals[y].add(m);
         }
+
         for (int i = 0; i <= 100001; i++) {
-            minerals[i].sort(Comparator.naturalOrder());
+            xMinerals[i].sort(Comparator.naturalOrder());
+            yMinerals[i].sort(Comparator.naturalOrder());
         }
 
         long sum = 0;
         long answer = 0;
         int count = 0;
         int nowX = 0;
-        int nowY = 100000;
+        int nowY = 100001;
 
-        while (nowX <= 100000 && nowY >= 0) {
+        while (nowX <= 100000 && nowY > 0) {
             if (count > c) {
                 nowY--;
-                for (Mineral mineral : minerals[nowX]) {
-                    if (mineral.y <= nowY) {
-                        break;
+                for (Mineral mineral : yMinerals[nowY]) {
+                    if (mineral.x <= nowX) {
+                        sum -= mineral.v;
+                        count--;
                     }
-                    sum -= mineral.v;
-                    count--;
                 }
             } else {
                 nowX++;
-                for (Mineral mineral : minerals[nowX]) {
-                    if (mineral.y > nowY) {
-                        continue;
+                for (Mineral mineral : xMinerals[nowX]) {
+                    if (mineral.y <= nowY) {
+                        sum += mineral.v;
+                        count++;
                     }
-                    sum += mineral.v;
-                    count++;
                 }
             }
             if (count <= c) {
@@ -73,6 +77,9 @@ class Mineral implements Comparable<Mineral> {
 
     @Override
     public int compareTo(Mineral o) {
+        if (o.y == this.y) {
+            return this.x - o.x;
+        }
         return o.y - this.y;
     }
 }
