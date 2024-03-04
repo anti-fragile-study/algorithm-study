@@ -22,21 +22,16 @@ public class Main {
             int x = Integer.parseInt(stk.nextToken());
             int y = Integer.parseInt(stk.nextToken());
             int v = Integer.parseInt(stk.nextToken());
-            final Mineral m = new Mineral(x, y, v);
+            Mineral m = new Mineral(x, y, v);
             xMinerals[x].add(m);
             yMinerals[y].add(m);
-        }
-
-        for (int i = 0; i <= 100001; i++) {
-            xMinerals[i].sort(Comparator.naturalOrder());
-            yMinerals[i].sort(Comparator.naturalOrder());
         }
 
         long sum = 0;
         long answer = 0;
         int count = 0;
-        int nowX = 0;
-        int nowY = 100001;
+        int nowX = -1;
+        int nowY = 100000;
 
         while (nowX <= 100000 && nowY >= 0) {
             if (count > c) {
@@ -48,13 +43,13 @@ public class Main {
                 }
                 nowY--;
             } else {
+                nowX++;
                 for (Mineral mineral : xMinerals[nowX]) {
                     if (mineral.y <= nowY) {
                         sum += mineral.v;
                         count++;
                     }
                 }
-                nowX++;
             }
             if (count <= c) {
                 answer = Math.max(answer, sum);
@@ -64,7 +59,7 @@ public class Main {
     }
 }
 
-class Mineral implements Comparable<Mineral> {
+class Mineral {
     int x;
     int y;
     int v;
@@ -73,13 +68,5 @@ class Mineral implements Comparable<Mineral> {
         this.x = x;
         this.y = y;
         this.v = v;
-    }
-
-    @Override
-    public int compareTo(Mineral o) {
-        if (o.y == this.y) {
-            return this.x - o.x;
-        }
-        return o.y - this.y;
     }
 }
