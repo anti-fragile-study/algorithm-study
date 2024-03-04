@@ -38,23 +38,23 @@ public class Main {
         int nowX = 0;
         int nowY = 100001;
 
-        while (nowX <= 100000 && nowY > 0) {
+        while (nowX <= 100000 && nowY >= 0) {
             if (count > c) {
-                nowY--;
                 for (Mineral mineral : yMinerals[nowY]) {
                     if (mineral.x <= nowX) {
                         sum -= mineral.v;
                         count--;
                     }
                 }
+                nowY--;
             } else {
-                nowX++;
                 for (Mineral mineral : xMinerals[nowX]) {
                     if (mineral.y <= nowY) {
                         sum += mineral.v;
                         count++;
                     }
                 }
+                nowX++;
             }
             if (count <= c) {
                 answer = Math.max(answer, sum);
