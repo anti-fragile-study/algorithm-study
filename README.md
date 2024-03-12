@@ -34,6 +34,14 @@
     <td><a href=""></a></td>
   </tr> -->
    <tr>
+    <td>24주차</td></td>
+    <td><a href="https://www.acmicpc.net/problem/21608">상어 초등학교</a></td>
+    <td><a href="https://www.acmicpc.net/problem/9084">동전</a></td>
+    <td><a href="https://www.acmicpc.net/problem/15724">주지수</a></td>
+    <td><a href="https://www.acmicpc.net/problem/3079">입국 심사</a></td>
+    <td><a href="https://www.acmicpc.net/problem/16987">계란으로 계란치기</a></td>
+  </tr>
+   <tr>
     <td>23주차</td></td>
     <td><a href="https://www.acmicpc.net/problem/11365">!밀비 급일</a></td>
     <td><a href="https://www.acmicpc.net/problem/1991">트리 순회</a></td>
