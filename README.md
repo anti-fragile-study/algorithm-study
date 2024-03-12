@@ -35,11 +35,11 @@
   </tr> -->
    <tr>
     <td>23주차</td></td>
-    <td><a href="https://www.acmicpc.net/problem/11365">!비밀 급일</a></td>
+    <td><a href="https://www.acmicpc.net/problem/11365">!밀비 급일</a></td>
     <td><a href="https://www.acmicpc.net/problem/1991">트리 순회</a></td>
     <td><a href="https://www.acmicpc.net/problem/1927">최소 힙</a></td>
     <td><a href="https://www.acmicpc.net/problem/1300">K번째 수</a></td>
-    <td><a href="https://www.acmicpc.net/problem/5373">큐빅</a></td>
+    <td><a href="https://www.acmicpc.net/problem/5373">큐빙</a></td>
   </tr>
    <tr>
     <td>22주차</td></td>
