@@ -34,6 +34,14 @@
     <td><a href=""></a></td>
   </tr> -->
    <tr>
+    <td>25주차</td></td>
+    <td><a href="https://www.acmicpc.net/problem/2578">빙고</a></td>
+    <td><a href="https://www.acmicpc.net/problem/2473">세 용액</a></td>
+    <td><a href="https://www.acmicpc.net/problem/3067">Coins</a></td>
+    <td><a href="https://www.acmicpc.net/problem/20207">달력</a></td>
+    <td><a href="https://www.acmicpc.net/problem/21611">마법사 상어와 블리자드</a></td>
+  </tr>
+   <tr>
     <td>24주차</td></td>
     <td><a href="https://www.acmicpc.net/problem/21608">상어 초등학교</a></td>
     <td><a href="https://www.acmicpc.net/problem/9084">동전</a></td>
