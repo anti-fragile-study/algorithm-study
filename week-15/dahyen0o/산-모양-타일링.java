@@ -1,18 +1,32 @@
 import java.util.*;
 
 class Solution {
+    
+    private static final long DIV = 10_007;
+    
     public int solution(final int N, final int[] tops) {
-        // dp[n][0] = 해당 n에 마름모 타일이 없음
-        // dp[n][1] = 해당 n에 마름모 타일이 있음
-        final int[][] dp = new int[N + 1][2];
+        // dp[][0]: 왼쪽 누운 마름모, 세운 마름모, no 마름모
+        // dp[][1]: 오른쪽 누운 마름모 -> 다음 dp에 영향
+        final long[][] dp = new long[N][2];
+        dp[0][0] = (tops[0] == 1) ? 3 : 2;
+        dp[0][1] = 1;
         
-        for(int bottom = 0; bottom <= N; bottom++) {
-            if(bottom % 2 > 0 && tops[bottom / 2] == 1) { 
-                // tops 존재
-                dp[bottom][1] = dp[bottom][b]
+        for(int i = 1; i < dp.length; i++) {
+            if(tops[i] == 1) {
+                dp[i][0] += dp[i - 1][0]; // 왼쪽 누운 마름모
+                dp[i][0] += dp[i - 1][0] + dp[i - 1][1]; // 세운 마름모
+                dp[i][0] += dp[i - 1][0] + dp[i - 1][1]; // no 마름모
+            } else {
+                dp[i][0] += dp[i - 1][0];
+                dp[i][0] += dp[i - 1][0] + dp[i - 1][1];
             }
+            
+            dp[i][1] += dp[i - 1][0] + dp[i - 1][1];
+            
+            dp[i][0] %= DIV;
+            dp[i][1] %= DIV;
         }
-        int answer = 0;
-        return answer;
+        
+        return (int)((dp[N - 1][0] + dp[N - 1][1]) % DIV);
     }
 }
