@@ -33,14 +33,14 @@
     <td><a href=""></a></td>
     <td><a href=""></a></td>
   </tr> -->
-  <!--  <tr>
+   <tr>
     <td>27주차</td></td>
-    <td><a href=""></a></td>
-    <td><a href=""></a></td>
-    <td><a href=""></a></td>
+    <td><a href="https://www.acmicpc.net/problem/20922">겹치는 건 싫어</a></td>
+    <td><a href="https://www.acmicpc.net/problem/5212">지구 온난화</a></td>
+    <td><a href="https://www.acmicpc.net/problem/3980">선발 명단</a></td>
     <td><a href="https://www.acmicpc.net/problem/22860">폴더 정리(small)</a></td>
     <td><a href="https://www.acmicpc.net/problem/22861">폴더 정리(large)</a></td>
-  </tr> -->
+  </tr>
   <tr>
     <td>26주차</td></td>
     <td><a href="https://www.acmicpc.net/problem/18311">왕복</a></td>
