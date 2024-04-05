@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    
+
     public static void main(String[] args) throws IOException {
         var br = new BufferedReader(new InputStreamReader(System.in));
         int c = Integer.parseInt(br.readLine());
@@ -22,23 +22,16 @@ public class Main {
 
     static int findPosition(int idx, int[][] stat, boolean[] position, int sum) {
         if (idx >= 11) {
-            for (int i = 0; i < 11; i++) {
-                if (!position[i]) {
-                    return 0;
-                }
-            }
             return sum;
         }
         int result = 0;
-        for (int i = idx; i < 11; i++) {
-            for (int j = 0; j < 11; j++) {
-                if (stat[i][j] == 0 || position[j]) {
-                    continue;
-                }
-                position[j] = true;
-                result = Math.max(result, findPosition(i + 1, stat, position, sum + stat[i][j]));
-                position[j] = false;
+        for (int i = 0; i < 11; i++) {
+            if (stat[idx][i] == 0 || position[i]) {
+                continue;
             }
+            position[i] = true;
+            result = Math.max(result, findPosition(idx + 1, stat, position, sum + stat[idx][i]));
+            position[i] = false;
         }
         return result;
     }
