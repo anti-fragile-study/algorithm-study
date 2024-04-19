@@ -34,6 +34,14 @@
     <td><a href=""></a></td>
   </tr> -->
    <tr>
+    <td>29주차</td></td>
+    <td><a href="https://www.acmicpc.net/problem/18868">멀티버스 Ⅰ</a></td>
+    <td><a href="https://www.acmicpc.net/problem/9019">DSLR</a></td>
+    <td><a href="https://www.acmicpc.net/problem/20164">홀수 홀릭 호석</a></td>
+    <td><a href="https://www.acmicpc.net/problem/17143">낚시왕</a></td>
+    <td><a href="https://www.acmicpc.net/problem/1948">임계경로</a></td>
+  </tr>
+   <tr>
     <td>28주차</td></td>
     <td><a href="https://www.acmicpc.net/problem/1166">선물</a></td>
     <td><a href="https://www.acmicpc.net/problem/17255">N으로 만들기</a></td>
