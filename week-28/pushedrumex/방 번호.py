@@ -1,19 +1,51 @@
+import sys
+input = sys.stdin.readline
+
+R, C = map(int, input().split())
+arr = [list(input()) for _ in range(R)]
 N = int(input())
-nums = list(map(int, input().split()))
-M = int(input())
 
-dp = [""] * (M+1)
+def move(row, col):
+    # 돌을 바닥 또는 돌이 있는 곳까지 보내기
 
-price = nums[0]
-for m in range(price, M+1):
-    dp[m] = "0" + dp[m-price]
+    if len(qs[col]) == 0:
+        row = R-1
+    else:
+        for x in qs[col]:
+            if x > row:
+                row = min(row, x - 1)
+                break
 
-# 숫자를 하나씩 사용
-for n in range(N-1, 0, -1):
-    price = nums[n]
-    for m in range(price, M+1):
-        n1, n2 = int(dp[m] if dp[m] != "" else 0), int(dp[m-price] + str(n))
-        if n1 < n2:
-            dp[m] = str(n2)
+    if row == R-1 or arr[row+1][col] == "X":
+        return (row, col)
 
-print(int(dp[-1]))
+    # 왼쪽 아래 또는 오른쪽 아래가 비어있다면 미끄러지기
+    if col > 0 and arr[row+1][col-1] == ".":
+        row += 1
+        col -= 1
+    elif col < C-1 and arr[row+1][col+1] == ".":
+        row += 1
+        col += 1
+
+    return (row, col)
+
+qs = [[] for _ in range(C)]
+for i in range(R):
+    for j in range(C):
+        if arr[i][j] == "X":
+            qs[j].append(i)
+
+for _ in range(N):
+    col = int(input()) - 1
+    pre_row, pre_col = 0, col
+    while True:
+        row, col = move(pre_row, pre_col)
+        if (row, col) == (pre_row, pre_col):
+            arr[row][col] = "O"
+            qs[col].append(row)
+            break
+        else:
+            pre_row, pre_col = row, col
+
+for row in arr:
+    print("".join(row))
