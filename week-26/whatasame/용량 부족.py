@@ -45,6 +45,17 @@ BAPC
 -> 2
 """
 
+"""
+1
+3
+abc
+a
+c
+1
+b
+-> 2
+"""
+
 input = lambda: sys.stdin.readline().strip()
 
 n = int(input())
@@ -63,14 +74,15 @@ def solution(cases):
         trie = {}
         for skip in skips:
             add(trie, skip)
+        if not trie:
+            answer.append(1)
+            continue
 
         commands = set()
         for target in targets:
             idx = examine(trie, target, 0)
             if idx == -1:  # no wildcard
                 commands.add(target)
-            elif idx == 0: # no skips
-                commands.add("*")
             else:
                 commands.add(target[:idx + 1] + "*")
 
