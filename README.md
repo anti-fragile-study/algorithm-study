@@ -33,6 +33,14 @@
     <td><a href=""></a></td>
     <td><a href=""></a></td>
   </tr> -->
+  <tr>
+    <td>30주차</td></td>
+    <td><a href="https://www.acmicpc.net/problem/16171">나는 친구가 적다 (Small)</a></td>
+    <td><a href="https://www.acmicpc.net/problem/17141">연구소 2</a></td>
+    <td><a href="https://www.acmicpc.net/problem/4811">알약</a></td>
+    <td><a href="https://www.acmicpc.net/problem/1655">가운데를 말해요</a></td>
+    <td><a href="https://www.acmicpc.net/problem/17831">대기업 승범이네</a></td>
+  </tr>
    <tr>
     <td>29주차</td></td>
     <td><a href="https://www.acmicpc.net/problem/18868">멀티버스 Ⅰ</a></td>
