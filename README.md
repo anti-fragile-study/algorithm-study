@@ -25,14 +25,6 @@
     <td>주차</td>
     <td colspan="5">문제 목록</td>
   </tr>
-<!--  <tr>
-    <td>주차</td></td>
-    <td><a href=""></a></td>
-    <td><a href=""></a></td>
-    <td><a href=""></a></td>
-    <td><a href=""></a></td>
-    <td><a href=""></a></td>
-  </tr> -->
   <tr>
     <td>30주차</td></td>
     <td><a href="https://www.acmicpc.net/problem/16171">나는 친구가 적다 (Small)</a></td>

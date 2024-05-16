@@ -19,6 +19,8 @@ select_and_add_problems(2, "https://school.programmers.co.kr/api/v2/school/chall
 # level 3,4
 select_and_add_problems(2, "https://school.programmers.co.kr/api/v2/school/challenges/?perPage=20&levels[]=3&levels[]=4&languages[]=java&order=recent&search=&page=1&perPage=1000")
 
+random.shuffle(problems)
+
 with open("README.md", "r", encoding="utf-8") as file:
         readme = file.read()
 
