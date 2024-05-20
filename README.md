@@ -26,6 +26,14 @@
     <td colspan="5">문제 목록</td>
   </tr>
   <tr>
+	<td>31주차</td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/42891>무지의 먹방 라이브</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/12935>제일 작은 수 제거하기</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/12973>짝지어 제거하기</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/72414>광고 삽입</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/49993>스킬트리</a></td>
+</tr>
+<tr>
     <td>30주차</td></td>
     <td><a href="https://www.acmicpc.net/problem/16171">나는 친구가 적다 (Small)</a></td>
     <td><a href="https://www.acmicpc.net/problem/17141">연구소 2</a></td>
