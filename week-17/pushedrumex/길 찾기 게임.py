@@ -1,36 +1,55 @@
-from collections import defaultdict
+import sys
+sys.setrecursionlimit(10**9)
 
+graph = {}
+nums = {}
+answer = [[], []]
 def solution(nodeinfo):
     N = len(nodeinfo)
-    y_dic = defaultdict(list)
-    node_dic = {}
-    for i, node in enumerate(nodeinfo):
-        x, y = node
-        y_dic[y].append(x)
-        node_dic[(x, y)] = i+1
+    for i in range(N):
+        nodeinfo[i] = tuple(nodeinfo[i])
+        
+    for i in range(N):
+        nums[nodeinfo[i]] = i+1
+        graph[nodeinfo[i]] = [None, None]
+        
+    nodeinfo.sort(key=lambda x: -x[1])
+    root = nodeinfo[0]
+    for i in range(1, N):
+        make_tree(root, nodeinfo[i])
     
-    tree = [[0, 0, 0] for _ in range(100_000 + 1)]
-    ys = sorted(y_dic.keys())
-    yN = len(ys)
-
-    for i in range(yN-1, 0, -1):
-        print(y_dic[ys[i]])
-        print(y_dic[ys[i-1]])
-        for parent in y_dic[ys[i]]:
-            for child in y_dic[ys[i-1]]:
-                if parent < tree[parent][0]:
-                    if child < parent:
-                        tree[parent][1] = child
-                        tree[child][0] = parent
-                    elif child < tree[parent][0]:
-                        tree[parent][2] = child
-                        tree[child][0] = parent
-                else:
-                    if child > parent:
-                        tree[parent][2] = child
-                        tree[child][0] = parent
-                    elif child > tree[parent][0]:
-                        tree[parent][1] = child
-                        tree[child][0] = parent
-    answer = [[]]
+    preorder(root)
+    postorder(root)
+    
     return answer
+
+def make_tree(parent, child):
+    if child[0] < parent[0]:
+        if graph[parent][0] == None:
+            graph[parent][0] = child
+        else:
+            make_tree(graph[parent][0], child)
+    elif parent[0] < child[0]:
+        if graph[parent][1] == None:
+            graph[parent][1] = child
+        else:
+            make_tree(graph[parent][1], child)
+
+# Root -> L -> R
+def preorder(node):
+    left, right = graph[node]
+    answer[0].append(nums[node])
+    if left != None:
+        preorder(left)
+    if right != None:
+        preorder(right)
+
+# L -> R -> Root
+def postorder(node):
+    left, right = graph[node]
+    if left != None:
+        postorder(left)
+    if right != None:
+        postorder(right)
+
+    answer[1].append(nums[node])
