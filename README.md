@@ -26,6 +26,14 @@
     <td colspan="5">문제 목록</td>
   </tr>
   <tr>
+	<td>32주차</td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/67257>수식 최대화</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/258709>주사위 고르기</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/42747>H-Index</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/12943>콜라츠 추측</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/49189>가장 먼 노드</a></td>
+</tr>
+<tr>
 	<td>31주차</td>
 	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/42891>무지의 먹방 라이브</a></td>
 	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/12935>제일 작은 수 제거하기</a></td>
