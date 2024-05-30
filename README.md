@@ -26,6 +26,14 @@
     <td colspan="5">문제 목록</td>
   </tr>
   <tr>
+	<td>33주차</td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/136798>기사단원의 무기</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/92345>사라지는 발판</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/60059>자물쇠와 열쇠</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/148652>유사 칸토어 비트열</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/42578>의상</a></td>
+</tr>
+<tr>
 	<td>32주차</td>
 	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/67257>수식 최대화</a></td>
 	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/258709>주사위 고르기</a></td>
