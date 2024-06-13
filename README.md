@@ -26,6 +26,14 @@
     <td colspan="5">문제 목록</td>
   </tr>
   <tr>
+	<td>35주차</td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/131129>카운트 다운</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/77886>110 옮기기</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/12977>소수 만들기</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/17683>[3차] 방금그곡</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/181187>두 원 사이의 정수 쌍</a></td>
+</tr>
+<tr>
 	<td>34주차</td>
 	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/138475>억억단을 외우자</a></td>
 	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/68647>짝수 행 세기</a></td>
