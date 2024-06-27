@@ -26,6 +26,14 @@
     <td colspan="5">문제 목록</td>
   </tr>
   <tr>
+	<td>37주차</td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/258707>n + 1 카드게임</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/87377>교점에 별 만들기</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/138476>귤 고르기</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/42861>섬 연결하기</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/68935>3진법 뒤집기</a></td>
+</tr>
+<tr>
 	<td>36주차</td>
 	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/12904>가장 긴 팰린드롬</a></td>
 	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/12981>영어 끝말잇기</a></td>
