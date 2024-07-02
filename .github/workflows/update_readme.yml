@@ -2,7 +2,7 @@ name: update README.md
 
 on:
   schedule:
-    - cron: '0 12 * * 4' # 매주 목요일 21:00 (한국 시간 = UTC +9:00)
+    - cron: '0 12 * * 1' # 매주 월요일 21:00 (한국 시간 = UTC +9:00)
 
 jobs:
   build:
