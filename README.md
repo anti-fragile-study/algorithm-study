@@ -26,6 +26,14 @@
     <td colspan="5">문제 목록</td>
   </tr>
   <tr>
+	<td>38주차</td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/12934>정수 제곱근 판별</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/1844>게임 맵 최단거리</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/81304>미로 탈출</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/92341>주차 요금 계산</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/17678>[1차] 셔틀버스</a></td>
+</tr>
+<tr>
 	<td>37주차</td>
 	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/258707>n + 1 카드게임</a></td>
 	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/87377>교점에 별 만들기</a></td>
