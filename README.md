@@ -26,6 +26,14 @@
     <td colspan="5">문제 목록</td>
   </tr>
   <tr>
+	<td>39주차</td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/147355>크기가 작은 부분 문자열 </a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/150365>미로 탈출 명령어</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/17684>[3차] 압축</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/12907>거스름돈</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/134239>우박수열 정적분</a></td>
+</tr>
+<tr>
 	<td>38주차</td>
 	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/12934>정수 제곱근 판별</a></td>
 	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/1844>게임 맵 최단거리</a></td>
