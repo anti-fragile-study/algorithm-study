@@ -26,6 +26,14 @@
     <td colspan="5">문제 목록</td>
   </tr>
   <tr>
+	<td>40주차</td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/12901>2016년</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/42842>카펫</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/72415>카드 짝 맞추기</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/131702>고고학 최고의 발견</a></td>
+	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/49993>스킬트리</a></td>
+</tr>
+<tr>
 	<td>39주차</td>
 	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/147355>크기가 작은 부분 문자열 </a></td>
 	<td><a href=https://school.programmers.co.kr/learn/courses/30/lessons/150365>미로 탈출 명령어</a></td>
